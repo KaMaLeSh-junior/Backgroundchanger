@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+    <style>
+        h1{
+            color: #112;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 1px 1px #000, -1px -1px #CCC;
+            font-size: 400%
+            }
+
+        label, input{
+            border-color: liner-gradient(to right, yellow, green);
+            border-style: solid;
+            margin:auto;
+            text-align: center;
+            padding: 10px;
+            display: block;
+            width: 100px;
+            color: #D3D3D3;
+            outline: none;
+            }
+        
+        .one,.two,.three{
+            border: 2px solid black;
+            margin: 5px;
+            width: 300px;
+            padding: 5px;
+            margin:10px auto;
+        }
+    </style>
+    <script>
+        function changeBackground(){
+        
+        //Get slider color variables
+        
+            var rd = parseInt(document.getElementById('red').value);
+            var gr = parseInt(document.getElementById('green').value);
+            var bl = parseInt(document.getElementById('blue').value);
+        
+        //convert to hex
+            var rdhexCode = (rd < 16) ? "0" + rd.toString(16) : rd.toString(16);
+            var grhexCode = (gr < 16) ? "0" + gr.toString(16) : gr.toString(16);
+            var blhexCode = (bl < 16) ? "0" + bl.toString(16) : bl.toString(16);
+        
+            var hexcode = "#" + rdhexCode + grhexCode + blhexCode;
+        
+        //change the background color
+            document.body.style.backgroundColor = hexcode;
+        
+        
+        }
+        
+        </script>
+</head>
+<body>
+    <h1>Background Color Sliders</h1>
+
+
+	<form>
+	
+	
+	<div class="one">
+		<label for = "red">RED</label>
+			<input type = "range" min="0" max="255" step="1" 
+			value = "0" id = "red" name = "red"
+			onchange = "changeBackground()">
+    </div>
+
+    <div class="two">
+		<label for = "green">GREEN</label>
+			<input type = "range" min="0" max="255" step="1" 
+			value = "0" id = "green" name = "green"
+			onchange ="changeBackground()">
+    </div>
+
+    <div class="three">
+		<label for = "blue">BLUE</label>
+			<input type = "range" min="0" max="255" step="1" 
+			value = "0" id = "blue" name = "blue"
+			onchange ="changeBackground()">
+    </div>
+
+
+	</form>
+</body>
+</html>
